@@ -13,7 +13,7 @@ public class Dealership {
 
     private ArrayList<Vehicle> inventory;
 
-    public Dealership(String phone, String address, String name) {
+    public Dealership(String name, String address, String phone) {
         this.phone = phone;
         this.address = address;
         this.name = name;
