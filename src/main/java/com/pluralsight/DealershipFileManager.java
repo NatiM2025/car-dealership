@@ -8,7 +8,6 @@ import java.util.List;
 
 public class DealershipFileManager {
 
-
     private String inventory;
 
     public Dealership getDealership() {
