@@ -117,8 +117,8 @@ public class Dealership {
         }
         return arrayList;
     }
-    public void removeVehicle (){
-
+    public void removeVehicle (Vehicle vehicle){
+   inventory.remove(vehicle);
     }
 
 }

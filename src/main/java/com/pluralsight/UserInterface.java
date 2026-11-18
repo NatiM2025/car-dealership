@@ -144,6 +144,22 @@ public class  UserInterface {
     }
 
     public void processRemoveVehicleRequest() {
+        System.out.print("Enter the VIN of the vehicle to remove: ");
+        String vin = scanner.nextLine();
+        Vehicle vehicleToRemove = null;
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin().equals(vin)) {
+                vehicleToRemove = vehicle;
+            }
+        }
+        if (vehicleToRemove == null) {
+            System.out.println("No vehicle found with that VIN.");
+        } else {
+            dealership.removeVehicle(vehicleToRemove);
+            DealershipFileManager fileManager = new DealershipFileManager();
+            fileManager.saveDealership(dealership);
+            System.out.println("Vehicle removed.");
+        }
     }
 
     private void init() {
