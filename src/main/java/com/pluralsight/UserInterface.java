@@ -112,6 +112,35 @@ public class  UserInterface {
     }
 
     public void processAddVehicleRequest() {
+        System.out.print("Enter the VIN: ");
+        String vin = scanner.nextLine();
+
+        System.out.print("Enter the year: ");
+        int year = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter the make: ");
+        String make = scanner.nextLine();
+
+        System.out.print("Enter the model: ");
+        String model = scanner.nextLine();
+
+        System.out.print("Enter the type (car, truck, SUV, van): ");
+        String vehicleType = scanner.nextLine();
+
+        System.out.print("Enter the color: ");
+        String color = scanner.nextLine();
+
+        System.out.print("Enter the mileage: ");
+        int odometer = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter the price: ");
+        BigDecimal price = new BigDecimal(scanner.nextLine());
+
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        dealership.addVehicle(vehicle);
+        DealershipFileManager fileManager = new DealershipFileManager();
+        fileManager.saveDealership(dealership);
+        System.out.println("Vehicle added.");
     }
 
     public void processRemoveVehicleRequest() {
