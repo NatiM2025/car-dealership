@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
-
+// holds the info fore one vehicle
 public class Vehicle {
     private String vin;
     private int year;

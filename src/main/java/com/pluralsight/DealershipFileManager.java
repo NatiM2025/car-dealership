@@ -4,7 +4,7 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
+// reads, saves and removes list of vehicles from the csv file
 public class DealershipFileManager {
 
     private String inventory;
@@ -41,6 +41,7 @@ public class DealershipFileManager {
 
         return dealership;
     }
+    // saves list of Vehicles to the file
     public void saveDealership(Dealership dealership){
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));

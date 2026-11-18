@@ -10,9 +10,9 @@ public class Dealership {
     private String name;
     private String address;
     private String phone;
-
+// holds all vehicle
     private ArrayList<Vehicle> inventory;
-
+//  holds the dealership info and the list of vehicles
     public Dealership(String name, String address, String phone) {
         this.phone = phone;
         this.address = address;
@@ -53,6 +53,7 @@ public class Dealership {
         return inventory;
     }
 
+    // gets all vehicles by price range
     public ArrayList<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
         ArrayList<Vehicle> arrayList = new ArrayList<>();
         for(Vehicle vehicle:inventory){
@@ -63,7 +64,7 @@ public class Dealership {
         }
         return arrayList;
     }
-
+    // gets all vehicles by make and model
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
         ArrayList<Vehicle> arrayList = new ArrayList<>();
         for(Vehicle vehicle:inventory){
@@ -74,7 +75,7 @@ public class Dealership {
         }
         return arrayList;
     }
-
+    // gets all vehicles by year range
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         ArrayList<Vehicle> arrayList = new ArrayList<>();
         for(Vehicle vehicle:inventory){
@@ -85,7 +86,7 @@ public class Dealership {
         }
         return arrayList;
     }
-
+    // gets all vehicles by color
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
         ArrayList<Vehicle> arrayList = new ArrayList<>();
         for(Vehicle vehicle:inventory){
@@ -96,7 +97,7 @@ public class Dealership {
         }
         return arrayList;
     }
-
+    // gets all vehicles by mileage range
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         ArrayList<Vehicle> arrayList = new ArrayList<>();
 
@@ -107,7 +108,7 @@ public class Dealership {
         }
         return arrayList;
     }
-
+    // gets all vehicles by body type
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
         ArrayList <Vehicle> arrayList = new ArrayList<>();
         for (Vehicle vehicle :inventory){
@@ -117,6 +118,7 @@ public class Dealership {
         }
         return arrayList;
     }
+    // remove vehicle
     public void removeVehicle (Vehicle vehicle){
    inventory.remove(vehicle);
     }

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
+// display the menu and receives user input
 public class  UserInterface {
     private Dealership dealership;
     private Scanner scanner = new Scanner(System.in);
@@ -44,6 +45,7 @@ public class  UserInterface {
             }
         }
     }
+    //ask the user for the price range
     public void processGetByPriceRequest() {
         System.out.print("Enter the lowest price: ");
         BigDecimal min = new BigDecimal(scanner.nextLine());
@@ -54,7 +56,7 @@ public class  UserInterface {
         List<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
         displayVehicles(vehicles);
     }
-
+    //ask the user for the make and model
     public void processGetByMakeModelRequest() {
         System.out.print("Enter the make: ");
         String make = scanner.nextLine();
@@ -65,7 +67,7 @@ public class  UserInterface {
         List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
         displayVehicles(vehicles);
     }
-
+    //ask the user for the year range
     public void processGetByYearRequest() {
         System.out.print("Enter the earliest year ");
         int min = scanner.nextInt();
@@ -77,7 +79,7 @@ public class  UserInterface {
         displayVehicles(vehicles);
         scanner.nextLine();
     }
-
+    //ask the user for the color
     public void processGetByColorRequest() {
         System.out.print("Enter the color");
         String color = scanner.nextLine();
@@ -86,7 +88,7 @@ public class  UserInterface {
         displayVehicles(vehicles);
 
     }
-
+    //ask the user for the mileage range
     public void processGetByMileageRequest() {
         System.out.print("Enter the lowest mileage: ");
         int min = Integer.parseInt(scanner.nextLine());
@@ -97,7 +99,7 @@ public class  UserInterface {
         List<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
         displayVehicles(vehicles);
     }
-
+    //ask the user for the type of vehicle
     public void processGetByVehicleTypeRequest() {
         System.out.print("Enter the type(sedan,truck,SUV,Van): ");
         String type = scanner.nextLine();
@@ -105,12 +107,12 @@ public class  UserInterface {
         List<Vehicle> vehicles = dealership.getVehiclesByType(type);
         displayVehicles(vehicles);
     }
-
+    //show all vehicles
     public void processGetAllVehiclesRequest() {
         List<Vehicle> vehicles = dealership.getAllVehicles();
         displayVehicles(vehicles);
     }
-
+//  ask the user information about new vehicle to add to list
     public void processAddVehicleRequest() {
         System.out.print("Enter the VIN: ");
         String vin = scanner.nextLine();
@@ -142,7 +144,7 @@ public class  UserInterface {
         fileManager.saveDealership(dealership);
         System.out.println("Vehicle added.");
     }
-
+// ask the user for vehicle vin to remove from list
     public void processRemoveVehicleRequest() {
         System.out.print("Enter the VIN of the vehicle to remove: ");
         String vin = scanner.nextLine();
@@ -161,7 +163,7 @@ public class  UserInterface {
             System.out.println("Vehicle removed.");
         }
     }
-
+//  loads the vehicles from the file
     private void init() {
         DealershipFileManager dealershipFileManager = new DealershipFileManager();
         dealership = dealershipFileManager.getDealership();
