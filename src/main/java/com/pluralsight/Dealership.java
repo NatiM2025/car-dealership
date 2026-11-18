@@ -54,27 +54,68 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
-        return null;
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+        for(Vehicle vehicle:inventory){
+
+            if (vehicle.getPrice().compareTo(min) >= 0 && vehicle.getPrice().compareTo(max) <= 0){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
 
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+        for(Vehicle vehicle:inventory){
+
+            if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
 
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
-        return null;
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+        for(Vehicle vehicle:inventory){
+
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
 
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
-        return null;
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+        for(Vehicle vehicle:inventory){
+
+            if (vehicle.getColor().equalsIgnoreCase(color)){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
 
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-        return null;
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+
+        for(Vehicle vehicle : inventory){
+            if (vehicle.getOdometer()  >= min && vehicle.getOdometer() <= max){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
 
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
-        return null;
+        ArrayList <Vehicle> arrayList = new ArrayList<>();
+        for (Vehicle vehicle :inventory){
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){
+                arrayList.add(vehicle);
+            }
+        }
+        return arrayList;
     }
     public void removeVehicle (){
 

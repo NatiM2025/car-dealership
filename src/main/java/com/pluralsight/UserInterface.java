@@ -1,20 +1,22 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
 public class  UserInterface {
     private Dealership dealership;
+    private Scanner scanner = new Scanner(System.in);
 
     public UserInterface() {
     }
     public void display() {
         init();
-        Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
         while (running) {
-            System.out.println("\n1 - Find vehicles within a price range");
+            System.out.println();
+            System.out.println("1 - Find vehicles within a price range");
             System.out.println("2 - Find vehicles by make / model");
             System.out.println("3 - Find vehicles by year range");
             System.out.println("4 - Find vehicles by color");
@@ -43,23 +45,65 @@ public class  UserInterface {
         }
     }
     public void processGetByPriceRequest() {
+        System.out.print("Enter the lowest price: ");
+        BigDecimal min = new BigDecimal(scanner.nextLine());
 
+        System.out.print("Enter the highest price: ");
+        BigDecimal max = new BigDecimal(scanner.nextLine());
+
+        List<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
+        displayVehicles(vehicles);
     }
 
     public void processGetByMakeModelRequest() {
+        System.out.print("Enter the make: ");
+        String make = scanner.nextLine();
 
+        System.out.print("Enter the model: ");
+        String model = scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(vehicles);
     }
 
     public void processGetByYearRequest() {
+        System.out.print("Enter the earliest year ");
+        int min = scanner.nextInt();
+
+        System.out.print("Enter the latest : ");
+        int max = scanner.nextInt();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByYear(min, max);
+        displayVehicles(vehicles);
+        scanner.nextLine();
     }
 
     public void processGetByColorRequest() {
+        System.out.print("Enter the color");
+        String color = scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
+        displayVehicles(vehicles);
+
     }
 
     public void processGetByMileageRequest() {
+        System.out.print("Enter the lowest mileage: ");
+        int min = Integer.parseInt(scanner.nextLine());
+
+        System.out.print("Enter the highest mileage : ");
+        int max = Integer.parseInt(scanner.nextLine());
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
+        displayVehicles(vehicles);
     }
 
     public void processGetByVehicleTypeRequest() {
+        System.out.print("Enter the type(sedan,truck,SUV,Van): ");
+        String type = scanner.nextLine();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByType(type);
+        displayVehicles(vehicles);
     }
 
     public void processGetAllVehiclesRequest() {
